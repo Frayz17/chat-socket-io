@@ -9,7 +9,7 @@ export default function App() {
       <Route exact path='/'>
         <Join />
       </Route>
-      <Route exact path='/'>
+      <Route exact path='/chat'>
         <Chat />
       </Route>
     </>
