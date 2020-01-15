@@ -38,13 +38,31 @@ export default function Join() {
     return !name || !room ? e.preventDefault() : null;
   };
 
+  const handlerSetName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handlerSetRoom = (e) => {
+    setRoom(e.target.value);
+  };
+
   return (
     <Grid container className={classes.root}>
       <Paper className={classes.paper}>
         <Box className={classes.box}>
           <Typography variant={'h4'}>Join</Typography>
-          <TextField label='Name' variant='outlined' />
-          <TextField label='Room' variant='outlined' />
+          <TextField
+            label='Name'
+            variant='outlined'
+            value={name}
+            onChange={handlerSetName}
+          />
+          <TextField
+            label='Room'
+            variant='outlined'
+            value={room}
+            onChange={handlerSetRoom}
+          />
           <Button
             color='primary'
             component={RouterLink}

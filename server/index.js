@@ -1,13 +1,15 @@
-const app = require('express')();
-const server = require('http').Server(app);
-const io = require('socket.io').apply(server);
+var app = require('express')();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 const PORT = process.env.PORT || 5000;
 
 const router = require('./router');
 
 io.on('connection', (socket) => {
-  console.log('a user connected!!!!');
+  socket.on('join', ({ name, room }, callback) => {
+    console.log(name, room);
+  });
 
   socket.on('disconnect', () => {
     console.log('a user disconnected');
