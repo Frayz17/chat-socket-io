@@ -3,8 +3,8 @@ import io from 'socket.io-client';
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
 import ChatHeader from 'components/ChatHeader';
+import MessagesContainer from 'components/MessagesContainer';
 import Input from 'components/Input';
-
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import styles from './styles';
@@ -14,7 +14,6 @@ let socket;
 export default function Chat({ location }) {
   const [name, setName] = React.useState('');
   const [room, setRoom] = React.useState('');
-  const [users, setUsers] = React.useState('');
   const [message, setMessage] = React.useState('');
   const [messages, setMessages] = React.useState([]);
 
@@ -42,10 +41,6 @@ export default function Chat({ location }) {
       setMessages([...messages, message]);
     });
 
-    socket.on('roomData', ({ users }) => {
-      setUsers(users);
-    });
-
     return () => {
       socket.emit('disconnect');
 
@@ -63,8 +58,9 @@ export default function Chat({ location }) {
 
   return (
     <Container className={classes.root}>
-      <Paper>
+      <Paper className={classes.paper}>
         <ChatHeader room={room} />
+        <MessagesContainer messages={messages} name={name} />
         <Input
           message={message}
           setMessage={setMessage}

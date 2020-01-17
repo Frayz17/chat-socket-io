@@ -9,9 +9,7 @@ import 'typeface-roboto';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100%'
+    marginTop: '10vh'
   }
 }));
 
@@ -20,7 +18,7 @@ export default function App() {
   return (
     <>
       <CssBaseline />
-      <Container className={classes.root}>
+      <Container maxWidth='md' className={classes.root}>
         <Route exact path='/'>
           <Join />
         </Route>
