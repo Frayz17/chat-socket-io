@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/chat-socket-io/static/js/main.c9098d59.chunk.js",
+    "main.js.map": "/chat-socket-io/static/js/main.c9098d59.chunk.js.map",
+    "runtime-main.js": "/chat-socket-io/static/js/runtime-main.9d46036f.js",
+    "runtime-main.js.map": "/chat-socket-io/static/js/runtime-main.9d46036f.js.map",
+    "static/css/2.630116c2.chunk.css": "/chat-socket-io/static/css/2.630116c2.chunk.css",
+    "static/js/2.4f6d1e45.chunk.js": "/chat-socket-io/static/js/2.4f6d1e45.chunk.js",
+    "static/js/2.4f6d1e45.chunk.js.map": "/chat-socket-io/static/js/2.4f6d1e45.chunk.js.map",
+    "index.html": "/chat-socket-io/index.html",
+    "precache-manifest.98c4eb6b4038e8ee118f40781b00a4a9.js": "/chat-socket-io/precache-manifest.98c4eb6b4038e8ee118f40781b00a4a9.js",
+    "service-worker.js": "/chat-socket-io/service-worker.js",
+    "static/css/2.630116c2.chunk.css.map": "/chat-socket-io/static/css/2.630116c2.chunk.css.map",
+    "static/js/2.4f6d1e45.chunk.js.LICENSE": "/chat-socket-io/static/js/2.4f6d1e45.chunk.js.LICENSE",
+    "static/media/index.css": "/chat-socket-io/static/media/roboto-latin-900italic.ebf6d164.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9d46036f.js",
+    "static/css/2.630116c2.chunk.css",
+    "static/js/2.4f6d1e45.chunk.js",
+    "static/js/main.c9098d59.chunk.js"
+  ]
+}
