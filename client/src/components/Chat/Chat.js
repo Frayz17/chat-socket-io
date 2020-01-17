@@ -19,7 +19,7 @@ export default function Chat({ location }) {
 
   const classes = styles();
 
-  const ENDPOINT = 'http://localhost:5000/';
+  const ENDPOINT = 'https://frayz-chat.herokuapp.com/';
   location = useLocation();
 
   React.useEffect(() => {
