@@ -2,6 +2,12 @@ import React from 'react';
 import io from 'socket.io-client';
 import queryString from 'query-string';
 import { useLocation } from 'react-router-dom';
+import ChatHeader from 'components/ChatHeader';
+import Input from 'components/Input';
+
+import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
+import styles from './styles';
 
 let socket;
 
@@ -11,6 +17,8 @@ export default function Chat({ location }) {
   const [users, setUsers] = React.useState('');
   const [message, setMessage] = React.useState('');
   const [messages, setMessages] = React.useState([]);
+
+  const classes = styles();
 
   const ENDPOINT = 'http://localhost:5000/';
   location = useLocation();
@@ -22,14 +30,47 @@ export default function Chat({ location }) {
     setName(name);
     setRoom(room);
 
-    socket.emit('join', { name, room });
+    socket.emit('join', { name, room }, (error) => {
+      if (error) {
+        alert(error);
+      }
+    });
+  }, [location.search, ENDPOINT]);
+
+  React.useEffect(() => {
+    socket.on('message', (message) => {
+      setMessages([...messages, message]);
+    });
+
+    socket.on('roomData', ({ users }) => {
+      setUsers(users);
+    });
 
     return () => {
       socket.emit('disconnect');
 
       socket.off();
     };
-  }, [location.search, ENDPOINT]);
+  }, [messages]);
 
-  return <div>Chat</div>;
+  const sendMessage = (event) => {
+    event.preventDefault();
+
+    if (message) {
+      socket.emit('sendMessage', message, () => setMessage(''));
+    }
+  };
+
+  return (
+    <Container className={classes.root}>
+      <Paper>
+        <ChatHeader room={room} />
+        <Input
+          message={message}
+          setMessage={setMessage}
+          sendMessage={sendMessage}
+        />
+      </Paper>
+    </Container>
+  );
 }
