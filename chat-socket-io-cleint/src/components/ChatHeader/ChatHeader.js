@@ -34,11 +34,7 @@ export default function ChatHeader({ room }) {
           {room}
         </Typography>
 
-        <Link
-          color='secondary'
-          className={classes.link}
-          href='/chat-socket-io-client'
-        >
+        <Link color='secondary' className={classes.link} href='/'>
           <CloseIcon className={classes.closeIcon} />
         </Link>
       </Toolbar>
